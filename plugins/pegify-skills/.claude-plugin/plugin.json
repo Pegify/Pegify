@@ -1,0 +1,19 @@
+{
+  "name": "pegify-skills",
+  "version": "0.1.0",
+  "description": "Pegify's core workflow skills: code review, TDD, systematic debugging, git flow, PR writing, and implementation plans.",
+  "author": {
+    "name": "Pegify",
+    "url": "https://pegify.com"
+  },
+  "homepage": "https://pegify.com",
+  "keywords": [
+    "pegify",
+    "skills",
+    "workflow",
+    "code-review",
+    "tdd",
+    "debugging",
+    "git"
+  ]
+}

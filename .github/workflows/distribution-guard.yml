@@ -1,0 +1,49 @@
+name: Distribution guard
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Marketplace content only
+        run: |
+          set -euo pipefail
+
+          is_allowed() {
+            case "$1" in
+              README.md|SECURITY.md|.gitignore) return 0 ;;
+              .claude-plugin/*|plugins/*|skills/*|marketplace/*|dist/*) return 0 ;;
+              .github/workflows/distribution-guard.yml) return 0 ;;
+              *) return 1 ;;
+            esac
+          }
+
+          failed=0
+          while IFS= read -r path; do
+            if ! is_allowed "$path"; then
+              echo "::error file=$path::path is outside the marketplace allowlist"
+              failed=1
+            fi
+
+            case "$path" in
+              .env|.env.*|*.pem|*.key|*.p12|*.pfx|*.keystore|*.jks|*.mobileprovision|id_rsa*|*.map)
+                echo "::error file=$path::forbidden file type (secret, key, or source map)"
+                failed=1
+                ;;
+            esac
+
+            if [ -f "$path" ] && [ "$(wc -c < "$path")" -gt 2097152 ]; then
+              echo "::error file=$path::file exceeds 2 MiB; publish binaries as release assets"
+              failed=1
+            fi
+          done < <(git ls-files)
+
+          exit "$failed"
