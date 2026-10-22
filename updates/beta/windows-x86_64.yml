@@ -1,8 +1,8 @@
 version: 3.15.2-beta.1
 files:
   - url: https://github.com/Pegify/Pegify/releases/download/pda-beta-3.15.2-beta.1/Pegify-3.15.2-beta.1-win-x64.exe
-    sha512: gAQmsTMHyN9Mqix+vknRX3sXvo8AshnsTK2szis9t5Y39XF86LQhA7x/eOTFbXVHPiY/wbZQSHqJYeA9f48EOg==
-    size: 154960889
+    sha512: 0rlhzIJBnn38wAcFgdefPS2iKELiYo5xmdgqcY7moDaWprbBojfTWcw//SkARIx7H30357oFLoLAxyWA148I+g==
+    size: 154962097
 path: Pegify-3.15.2-beta.1-win-x64.exe
-sha512: gAQmsTMHyN9Mqix+vknRX3sXvo8AshnsTK2szis9t5Y39XF86LQhA7x/eOTFbXVHPiY/wbZQSHqJYeA9f48EOg==
-releaseDate: 2026-10-22T11:39:11.000Z
+sha512: 0rlhzIJBnn38wAcFgdefPS2iKELiYo5xmdgqcY7moDaWprbBojfTWcw//SkARIx7H30357oFLoLAxyWA148I+g==
+releaseDate: 2026-10-22T12:02:26.000Z
